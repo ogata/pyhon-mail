@@ -56,7 +56,7 @@ def dovecot_add_password(domain, user, pwd):
             return
 
     outfile = open(PASSWORD, 'a')
-    outfile.write("%s:{PLAIN}%s\n" % (mail_addr, pwd))
+    outfile.write("%s:{PLAIN}%s:virtual:virtual:(gecos):/home/virtual/%s/%s:(shell):\n" % (mail_addr, pwd, domain, user))
     outfile.close()
     print '追加した'
 
